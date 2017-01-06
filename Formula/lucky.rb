@@ -6,7 +6,7 @@ class Lucky < Formula
   depends_on "crystal-lang"
 
   def install
-    bin.install "lucky"
+    bin.install Dir["*"]
   end
 
   test do
