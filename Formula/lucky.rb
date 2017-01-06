@@ -5,7 +5,7 @@ class Lucky < Formula
   depends_on "crystal-lang"
 
   def install
-    bin.install "lucky_cli"
+    bin.install "lucky"
   end
 
   test do
