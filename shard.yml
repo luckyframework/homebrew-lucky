@@ -1,0 +1,13 @@
+name: homebrew-lucky-crystal
+version: 0.1.0
+
+authors:
+  - Paul Smith <paulcsmith0218@gmail.com>
+
+crystal: 0.22.0
+
+license: MIT
+
+dependencies:
+  lucky_cli:
+    github: luckyframework/cli
