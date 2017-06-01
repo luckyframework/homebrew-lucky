@@ -9,7 +9,11 @@ def run_command(command)
     shell: true,
     output: result,
     error: true
-  result
+  result.to_s
+end
+
+def extract_sha(result)
+  result.split("  ").first
 end
 
 puts "Installing shards"
@@ -24,4 +28,4 @@ puts "Done building"
 puts "Here is the SHA for the lucky binary:"
 result = run_command "shasum -a 256 built_binaries/lucky-#{version}"
 
-puts result.to_s.split("  ").first.colorize(:green)
+puts extract_sha(result).colorize(:green)
