@@ -7,7 +7,7 @@ class Lucky < Formula
   depends_on "crystal-lang"
 
   def install
-    bin.install "lucky"
+    bin.install "lucky-<%= version %>"
   end
 
   test do
