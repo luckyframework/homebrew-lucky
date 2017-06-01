@@ -10,6 +10,7 @@ class LuckyRelease
   def generate
     puts "Installing shards"
     run_command "shards install"
+    run_command "shards update"
 
     puts "Building lucky cli"
     run_command "crystal build --release lib/lucky_cli/src/lucky.cr"
@@ -27,6 +28,10 @@ class LuckyRelease
     end
 
     File.write("./Formula/lucky.rb", formula)
+  end
+
+  private def url
+    "https://github.com/luckyframework/homebrew-lucky/raw/master/built_binaries/lucky-#{version}"
   end
 
   private def binary_sha
