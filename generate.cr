@@ -14,7 +14,7 @@ class LuckyRelease
 
     puts "Building lucky cli"
     run_command "crystal build --release lib/lucky_cli/src/lucky.cr"
-    run_command "mv lucky built_binaries/lucky"
+    run_command "mv lucky built_binaries/#{binary_name}"
 
     puts "Writing new formula"
     generate_new_formula(binary_sha)
@@ -30,12 +30,16 @@ class LuckyRelease
     File.write("./Formula/lucky.rb", formula)
   end
 
+  private def binary_name
+    "lucky-#{version}"
+  end
+
   private def url
-    "https://github.com/luckyframework/homebrew-lucky/raw/master/built_binaries/lucky"
+    "https://github.com/luckyframework/homebrew-lucky/raw/master/built_binaries/#{binary_name}"
   end
 
   private def binary_sha
-    extract_sha run_command("shasum -a 256 built_binaries/lucky")
+    extract_sha get_result_from("shasum -a 256 built_binaries/#{binary_name}")
   end
 
   private def version
@@ -43,6 +47,13 @@ class LuckyRelease
   end
 
   private def run_command(command)
+    Process.run command,
+      shell: true,
+      output: true,
+      error: true
+  end
+
+  private def get_result_from(command)
     result = IO::Memory.new
     Process.run command,
       shell: true,
