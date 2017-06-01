@@ -17,12 +17,12 @@ class LuckyRelease
     run_command "mv lucky built_binaries/#{binary_name}"
 
     puts "Writing new formula"
-    generate_new_formula(binary_sha)
+    generate_new_formula
 
     puts "All done!".colorize(:green)
   end
 
-  private def generate_new_formula(sha)
+  private def generate_new_formula
     formula = String.build do |formula|
       ECR.embed "./Formula/lucky.rb.ecr", formula
     end
@@ -49,7 +49,7 @@ class LuckyRelease
   private def run_command(command)
     Process.run command,
       shell: true,
-      output: true,
+      output: false,
       error: true
   end
 
@@ -63,7 +63,7 @@ class LuckyRelease
   end
 
   private def extract_sha(result)
-    result.split("  ").first
+    result.split(" ").first
   end
 end
 
