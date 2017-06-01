@@ -7,6 +7,7 @@ class Lucky < Formula
   depends_on "crystal-lang"
 
   def install
+    system "mv", "<%= binary_name %>", "lucky"
     bin.install "lucky"
   end
 
