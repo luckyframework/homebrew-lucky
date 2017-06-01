@@ -14,7 +14,7 @@ class LuckyRelease
 
     puts "Building lucky cli"
     run_command "crystal build --release lib/lucky_cli/src/lucky.cr"
-    run_command "mv lucky built_binaries/lucky-#{version}"
+    run_command "mv lucky built_binaries/lucky"
 
     puts "Writing new formula"
     generate_new_formula(binary_sha)
@@ -31,11 +31,11 @@ class LuckyRelease
   end
 
   private def url
-    "https://github.com/luckyframework/homebrew-lucky/raw/master/built_binaries/lucky-#{version}"
+    "https://github.com/luckyframework/homebrew-lucky/raw/master/built_binaries/lucky"
   end
 
   private def binary_sha
-    extract_sha run_command("shasum -a 256 built_binaries/lucky-#{version}")
+    extract_sha run_command("shasum -a 256 built_binaries/lucky")
   end
 
   private def version
