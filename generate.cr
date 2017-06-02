@@ -49,7 +49,7 @@ class LuckyRelease
   private def run_command(command)
     Process.run command,
       shell: true,
-      output: false,
+      output: true,
       error: true
   end
 
