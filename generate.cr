@@ -8,10 +8,6 @@ class LuckyRelease
   end
 
   def generate
-    puts "Installing shards"
-    run_command "shards install"
-    run_command "shards update"
-
     puts "Building lucky cli"
     run_command "crystal build --release lib/lucky_cli/src/lucky.cr"
     run_command "mv lucky built_binaries/#{binary_name}"

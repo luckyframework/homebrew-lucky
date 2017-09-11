@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -e
+
+shards install
+shards update
+
+crystal generate.cr
