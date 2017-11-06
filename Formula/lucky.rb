@@ -1,13 +1,13 @@
 class Lucky < Formula
   desc "Task runner for Crystal"
   homepage "http://github.com/luckyframework/cli"
-  url "https://github.com/luckyframework/homebrew-lucky/raw/master/built_binaries/lucky-0.6.1"
-  sha256 "2015ae7a5a2e5d5cd36ea6ac295f70ba200f2e6dce78ca39de9563f2967c1e34"
-  version "0.6.1"
+  url "https://github.com/luckyframework/homebrew-lucky/raw/master/built_binaries/lucky-0.6.2"
+  sha256 "9c3dacd32f78a312cb7181f3c6ca5b8951d834ca1e639e7242f930dfbbba7136"
+  version "0.6.2"
   depends_on "crystal-lang"
 
   def install
-    system "mv", "lucky-0.6.1", "lucky"
+    system "mv", "lucky-0.6.2", "lucky"
     bin.install "lucky"
   end
 
