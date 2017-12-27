@@ -45,8 +45,8 @@ class LuckyRelease
   private def run_command(command)
     Process.run command,
       shell: true,
-      output: true,
-      error: true
+      output: STDOUT,
+      error: STDERR
   end
 
   private def get_result_from(command)
@@ -54,7 +54,7 @@ class LuckyRelease
     Process.run command,
       shell: true,
       output: result,
-      error: true
+      error: STDERR
     result.to_s
   end
 
