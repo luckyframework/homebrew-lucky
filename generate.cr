@@ -8,14 +8,16 @@ class LuckyRelease
   end
 
   def generate
-    puts "Building lucky cli"
-    run_command "crystal build --release lib/lucky_cli/src/lucky.cr"
-    run_command "mv lucky built_binaries/#{binary_name}"
+    generate_tarball
 
     puts "Writing new formula"
     generate_new_formula
 
     puts "All done!".colorize(:green)
+  end
+
+  private def generate_tarball
+    run_command "tar -czf #{tarball_path} lib"
   end
 
   private def generate_new_formula
@@ -26,16 +28,16 @@ class LuckyRelease
     File.write("./Formula/lucky.rb", formula)
   end
 
-  private def binary_name
-    "lucky-#{version}"
+  def tarball_path
+    "tarballs/lucky-#{version}.tar.gz"
   end
 
   private def url
-    "https://github.com/luckyframework/homebrew-lucky/raw/master/built_binaries/#{binary_name}"
+    "https://github.com/luckyframework/homebrew-lucky/raw/master/#{tarball_path}"
   end
 
   private def binary_sha
-    extract_sha get_result_from("shasum -a 256 built_binaries/#{binary_name}")
+    extract_sha get_result_from("shasum -a 256 #{tarball_path}")
   end
 
   private def version
