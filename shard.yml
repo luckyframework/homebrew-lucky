@@ -11,3 +11,4 @@ license: MIT
 dependencies:
   lucky_cli:
     github: luckyframework/cli
+    tag: v0.10.0-rc2
