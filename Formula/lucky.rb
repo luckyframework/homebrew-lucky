@@ -7,9 +7,9 @@ class Lucky < Formula
   depends_on "crystal-lang"
 
   devel do
-    url "https://github.com/luckyframework/homebrew-lucky/raw/master/tarballs/lucky-0.10.0-rc2.tar.gz"
-    sha256 "3afe3f6a5d472286489615508affc5485622bcbe88fdcdeb6c4a8a8fb4278d84"
-    version "0.10.0-rc2"
+    url "https://github.com/luckyframework/homebrew-lucky/raw/master/tarballs/lucky-0.10.0-rc3.tar.gz"
+    sha256 "74a07c9d5131b199ffdcee4aa4de34a8fc11532edac64f15777903993c64c1c3"
+    version "0.10.0-rc3"
   end
 
   def install
