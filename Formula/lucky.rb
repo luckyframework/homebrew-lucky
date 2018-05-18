@@ -1,16 +1,10 @@
 class Lucky < Formula
-  desc "Task runner and Lucky project initializer for Crystal"
+  desc "Task runner for Crystal"
   homepage "http://github.com/luckyframework/cli"
-  url "https://github.com/luckyframework/homebrew-lucky/raw/master/tarballs/lucky-0.9.2.tar.gz"
-  sha256 "d58ce3559eb09a3cb65fec82873ceafac1bac5097480932fbc869726f1f6a25e"
-  version "0.9.2"
+  url "https://github.com/luckyframework/homebrew-lucky/raw/master/tarballs/lucky-0.10.0.tar.gz"
+  sha256 "a5db22045a177e37e83e8c57fc426dacd585fcbf0e5b53c0cc02a09645f60aa9"
+  version "0.10.0"
   depends_on "crystal-lang"
-
-  devel do
-    url "https://github.com/luckyframework/homebrew-lucky/raw/master/tarballs/lucky-0.10.0-rc3.tar.gz"
-    sha256 "74a07c9d5131b199ffdcee4aa4de34a8fc11532edac64f15777903993c64c1c3"
-    version "0.10.0-rc3"
-  end
 
   def install
     system "mkdir lib"
