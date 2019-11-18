@@ -11,4 +11,4 @@ license: MIT
 dependencies:
   lucky_cli:
     github: luckyframework/cli
-    version: 0.18.0
+    version: 0.18.1
