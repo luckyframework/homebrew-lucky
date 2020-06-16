@@ -2,7 +2,7 @@ class Lucky < Formula
   desc "Task runner for Crystal"
   homepage "http://github.com/luckyframework/cli"
   url "https://github.com/luckyframework/homebrew-lucky/raw/master/tarballs/lucky-0.22.0.tar.gz"
-  sha256 "4212c5a6aa471119ddd5680e931a3805bed67861186604c8532b7f3cb75a71ba"
+  sha256 "22efdb6c052ddf29106d3067fe8b2656db2035165fdeff9e010015772db9f456"
   version "0.22.0"
   depends_on "crystal-lang"
 
