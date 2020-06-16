@@ -6,4 +6,4 @@ shards update
 
 crystal generate.cr
 
-echo "Remember to tag it (git tag vX.X.X) and push tags (git push --tags)"
+echo "Remember to commit, tag (git tag vX.X.X), and push tags (git push --tags)"
