@@ -4,6 +4,7 @@ class Lucky < Formula
   url "<%= url %>"
   sha256 "<%= binary_sha %>"
   version "<%= version %>"
+  depends_on "crystal"
 
   def install
     system "mkdir lib"
@@ -15,6 +16,6 @@ class Lucky < Formula
   end
 
   test do
-    system "{bin}/lucky", "--help"
+    system "{bin}/lucky", "-v"
   end
 end

@@ -2,8 +2,9 @@ class Lucky < Formula
   desc "Task runner for Crystal"
   homepage "http://github.com/luckyframework/cli"
   url "https://github.com/luckyframework/homebrew-lucky/raw/master/tarballs/lucky-0.22.0.tar.gz"
-  sha256 "13843bd255ba17da78648e45ee2cee007aa860c99858760f849cd8cd89a4a662"
+  sha256 "688aadff6928bcffec5a4aebc7f430bd16309f654777a0adb62d3b95bd43a73c"
   version "0.22.0"
+  depends_on "crystal"
 
   def install
     system "mkdir lib"
@@ -15,6 +16,6 @@ class Lucky < Formula
   end
 
   test do
-    system "{bin}/lucky", "--help"
+    system "{bin}/lucky", "-v"
   end
 end
