@@ -4,11 +4,11 @@ version: 0.1.0
 authors:
   - Paul Smith <paulcsmith0218@gmail.com>
 
-crystal: 0.35.0
+crystal: 0.35.1
 
 license: MIT
 
 dependencies:
   lucky_cli:
     github: luckyframework/cli
-    version: 0.23.1
+    version: 0.24.0
