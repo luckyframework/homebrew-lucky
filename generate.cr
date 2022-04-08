@@ -33,7 +33,7 @@ class LuckyRelease
   end
 
   private def url
-    "https://github.com/luckyframework/homebrew-lucky/raw/master/#{tarball_path}"
+    "https://raw.githubusercontent.com/luckyframework/homebrew-lucky/main/#{tarball_path}"
   end
 
   private def binary_sha
