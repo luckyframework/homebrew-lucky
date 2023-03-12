@@ -1,9 +1,9 @@
 class Lucky < Formula
   desc "CLI installer for Lucky Framework"
   homepage "https://github.com/luckyframework/lucky_cli"
-  url "https://raw.githubusercontent.com/luckyframework/homebrew-lucky/main/tarballs/lucky-1.0.0-rc1.tar.gz"
-  sha256 "f3d3cb3f65c0345e79c6e0ddf2b7b6e91c3683b11eeb472cdad1624aefe361af"
-  version "1.0.0-rc1"
+  url "https://raw.githubusercontent.com/luckyframework/homebrew-lucky/main/tarballs/lucky-1.0.0.tar.gz"
+  sha256 "21fb34252672733f8f51e3370ee8b13a6ece1de09d176a6c80f7a92192a05a0a"
+  version "1.0.0"
   depends_on "crystal"
 
   def install
