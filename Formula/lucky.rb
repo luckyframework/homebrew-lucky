@@ -5,6 +5,7 @@ class Lucky < Formula
   license "MIT"
   url "https://github.com/luckyframework/lucky_cli/archive/refs/tags/v1.1.0-test2.zip"
   sha256 "a02c7d3a1d9f962d4c4b4715ce08b33b7e35cf876c95c9d6b09da73dd30574d4"
+  head "https://github.com/luckyframework/lucky_cli.git", branch: "main"
   version "1.1.0-test2"
 
   depends_on "crystal" => :build
