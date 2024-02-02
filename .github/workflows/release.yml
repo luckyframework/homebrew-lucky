@@ -23,11 +23,11 @@ jobs:
       - uses: actions/checkout@v4
       - name: Bump Formula
         run: |
-          ls -lah
-          sed -i '' -e 's#url ".*"#url "${{ inputs.url }}"#' \
-                    -e 's/sha256 ".*"/sha256 "${{ inputs.sha256 }}"/' \
-                    -e 's/version ".*"/version "${{ inputs.version }}"/' \
-                    -e 's/assert_equal ".*",/assert_equal "${{ inputs.version }}",/' Formula/lucky.rb
+          sed -e 's#url ".*"#url "${{ inputs.url }}"#' \
+              -e 's/sha256 ".*"/sha256 "${{ inputs.sha256 }}"/' \
+              -e 's/version ".*"/version "${{ inputs.version }}"/' \
+              -e 's/assert_equal ".*",/assert_equal "${{ inputs.version }}",/' \
+              Formula/lucky.rb | tee Formula/lucky.rb
           git add .
       - name: Create PR
         uses: diillson/auto-pull-request@v1.0.1
