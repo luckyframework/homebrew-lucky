@@ -1,0 +1,40 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: "New Formula URL"
+        required: true
+        type: string
+      sha256:
+        description: "New Formula SHA256"
+        required: true
+        type: string
+      version:
+        description: "New Formula VERSION"
+        required: true
+        type: string
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bump Formula
+        run: |
+          sed -i '' -e 's#url ".*"#url "${{ inputs.url }}"#' \
+                    -e 's/sha256 ".*"/sha256 "${{ inputs.sha256 }}"/' \
+                    -e 's/version ".*"/version "${{ inputs.version }}"/' \
+                    -e 's/assert_equal ".*",/assert_equal "${{ inputs.version }}",/' Formula/lucky.rb
+          git add .
+      - name: Create PR
+        uses: diillson/auto-pull-request@v1.0.1
+        with:
+          source_branch: "release/${{ inputs.version }}"
+          destination_branch: main
+          pr_title: "Release ${{ inputs.version }}"
+          pr_body: |
+            :crown: *An automated PR*
+
+            _Created by [diillson/auto-pull-request](https://github.com/diillson/auto-pull-request)_
