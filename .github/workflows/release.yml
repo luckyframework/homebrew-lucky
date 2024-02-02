@@ -23,6 +23,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Bump Formula
         run: |
+          ls -lah
           sed -i '' -e 's#url ".*"#url "${{ inputs.url }}"#' \
                     -e 's/sha256 ".*"/sha256 "${{ inputs.sha256 }}"/' \
                     -e 's/version ".*"/version "${{ inputs.version }}"/' \
