@@ -1,9 +1,0 @@
-#!/bin/sh
-
-set -e
-
-shards update
-
-crystal generate.cr
-
-echo "Remember to commit, tag (git tag vX.X.X), and push tags (git push --tags)"

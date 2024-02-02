@@ -1,22 +1,22 @@
+# `brew install luckyframework/homebrew-lucky/lucky`
 class Lucky < Formula
-  desc "CLI installer for Lucky Framework"
+  desc "A Crystal command-line tool for generating new Lucky Web Applications"
   homepage "https://github.com/luckyframework/lucky_cli"
-  url "https://raw.githubusercontent.com/luckyframework/homebrew-lucky/main/tarballs/lucky-1.1.0.tar.gz"
-  sha256 "6fad3305c5d842a2a4efe59d8f9e51ec1ebf38e4ac7633dbcc88c8b855cd5be2"
+  license "MIT"
+  url "https://github.com/luckyframework/lucky_cli/archive/refs/tags/v1.1.0.zip"
+  sha256 "39b4528feef22983e96c748591cc8102c6a5f315ce4c1f56e4c60b8e21af108e"
+  head "https://github.com/luckyframework/lucky_cli.git", branch: "main"
   version "1.1.0"
-  depends_on "crystal"
+
+  depends_on "crystal" => :build
+  depends_on "git" => :build
 
   def install
-    system "mkdir lib"
-    system "mv nox lib/"
-    system "mv lucky_template lib/"
-    system "mv lucky_task lib/"
-    system "mv lucky_cli lib/"
-    system "crystal build lib/lucky_cli/src/lucky.cr"
-    bin.install "lucky"
+    system "shards", "build", "lucky", "--without-development", "--no-debug", "--release"
+    bin.install "./bin/lucky"
   end
 
   test do
-    system "{bin}/lucky", "-v"
+    assert_equal "1.1.0", shell_output("#{bin}/lucky --version").strip
   end
 end
