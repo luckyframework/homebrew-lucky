@@ -26,21 +26,14 @@ jobs:
       - uses: actions/checkout@v4
       - name: Bump Formula
         run: |
-          git checkout -b release/${{ inputs.version }}
           sed -e 's#url ".*"#url "${{ inputs.url }}"#' \
               -e 's/sha256 ".*"/sha256 "${{ inputs.sha256 }}"/' \
               -e 's/version ".*"/version "${{ inputs.version }}"/' \
               -e 's/assert_equal ".*",/assert_equal "${{ inputs.version_test || inputs.version }}",/' \
               Formula/lucky.rb | tee Formula/lucky.rb
-          git add .
-          git commit -m "release: bump to ${{ inputs.version }}"
       - name: Create PR
-        uses: diillson/auto-pull-request@v1.0.1
+        uses: peter-evans/create-pull-request@v6
         with:
-          source_branch: "release/${{ inputs.version }}"
-          destination_branch: main
-          pr_title: "Release ${{ inputs.version }}"
-          pr_body: |
-            :crown: *An automated PR*
-
-            _Created by [diillson/auto-pull-request](https://github.com/diillson/auto-pull-request)_
+          branch: "release/${{ inputs.version }}"
+          title: "Release ${{ inputs.version }}"
+          commit-message: "release: bump to ${{ inputs.version }}"
