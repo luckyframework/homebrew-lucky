@@ -3,8 +3,8 @@ class Lucky < Formula
   desc "A Crystal command-line tool for generating new Lucky Web Applications"
   homepage "https://github.com/luckyframework/lucky_cli"
   license "MIT"
-  url "https://github.com/luckyframework/lucky_cli/archive/refs/tags/v1.1.0.zip"
-  sha256 "39b4528feef22983e96c748591cc8102c6a5f315ce4c1f56e4c60b8e21af108e"
+  url "https://github.com/luckyframework/lucky_cli/refs/tags/v1.1.0.zip"
+  sha256 "3271ec34451670413f98cc075c9c0d463f5b45a2bfb8e120cc2e036402c684df"
   head "https://github.com/luckyframework/lucky_cli.git", branch: "main"
   version "1.1.0"
 
